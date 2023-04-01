@@ -1,3 +1,4 @@
+const NGROK = `${window.location.hostname}`;
 let socket = io(NGROK, { path: '/real-time' });
 console.log('Server IP: ', NGROK);
 
@@ -51,13 +52,13 @@ function updateLightLevel(actionA, signal) {
 
     if(actionA == 'P'){
 
-        if (signal <= 500) {
+        if (signal <= 499) {
             levelMessage = `  <div id="Light_Level_Text">
                                   <div class="Light_Bar_Grey">
                                       <div class="Bar" id="Low_Bar"></div>
                                   </div>
-                                  <h3>Low Light</h3> <br>
-                                  <p>Consider turning on both lights</p>
+                                  <h2>Low Light 💡</h2> <br><br>
+                                  <p>Consider turning on both lights</p><br>
                               </div>
                           `;
           } else if (signal >= 500 && signal <= 800) {
@@ -66,8 +67,8 @@ function updateLightLevel(actionA, signal) {
                                   <div class="Light_Bar_Grey">
                                       <div class="Bar" id="Medium_Bar""></div>
                                   </div>
-                                  <h3>Medium Light</h3> <br>
-                                  <p>Consider turning on one light</p>
+                                  <h2>Medium Light 💡</h2> <br><br>
+                                  <p>Consider turning on one light</p><br>
                               </div>
                           `;
           } else {
@@ -76,8 +77,8 @@ function updateLightLevel(actionA, signal) {
                                   <div class="Light_Bar_Grey">
                                       <div class="Bar" id="High_Bar""></div>
                                   </div>
-                                  <h3>High Light</h3> <br>
-                                  <p>Consider turning off both lights</p>
+                                  <h2>High Light 💡</h2> <br><br>
+                                  <p>Consider turning off both lights</p><br>
                               </div>
                           `;
           }
@@ -88,8 +89,8 @@ function updateLightLevel(actionA, signal) {
 
     function updateLEDstatus(actionA, actionB, signal){
 
-        var Bulb1 = document.getElementById("Bulb1");
-        var Bulb2 = document.getElementById("Bulb2");
+        var Bombillo1 = document.getElementById("Bombillo1");
+        var Bombillo2 = document.getElementById("Bombillo2");
 
         var Light1 = document.getElementById("Light1");
         var Light2 = document.getElementById("Light2");
@@ -107,10 +108,10 @@ function updateLightLevel(actionA, signal) {
                 switch (signal) {
                     case 0:
                         console.log('LED 1 Off');
-                        Status1.innerHTML = 'is off';
+                        Status1.innerHTML = 'Light is Off';
                                     
-                        //img
-                        Light1.style.backgroundColor = "#05055d";
+                        Bombillo1.src = "./images/LightOff.png";
+                        Light1.style.backgroundColor = "#2E2E2E";
                         Label1.style.color = "#ffffff";
                         Status1.style.color = "#ffffff";
 
@@ -118,10 +119,10 @@ function updateLightLevel(actionA, signal) {
                 
                     case 1:
                         console.log('LED 1 On');
-                        Status1.innerHTML = 'is on';
+                        Status1.innerHTML = 'Light is On';
 
-                        //img
-                        Light1.style.backgroundColor = "#f8e8cc";
+                        Bombillo1.src = "./images/LightOn.png";
+                        Light1.style.backgroundColor = "#F2FCFF";
                         Label1.style.color = "#444444";
                         Status1.style.color = "#444444";
 
@@ -134,10 +135,10 @@ function updateLightLevel(actionA, signal) {
                 switch (signal) {
                     case 0:
                         console.log('LED 2 Off');
-                        Status2.innerHTML = 'is off';
+                        Status2.innerHTML = 'Light is off';
 
-                        //img
-                        Light2.style.backgroundColor = "#05055d";
+                        Bombillo2.src = "./images/LightOff.png";
+                        Light2.style.backgroundColor = "#2E2E2E";
                         Label2.style.color = "#ffffff";
                         Status2.style.color = "#ffffff";
 
@@ -145,10 +146,10 @@ function updateLightLevel(actionA, signal) {
                 
                     case 1:
                         console.log('LED 2 On');
-                        Status2.innerHTML = 'is on';
+                        Status2.innerHTML = 'Light is on';
 
-                        //img
-                        Light2.style.backgroundColor = "#f8e8cc";
+                        Bombillo2.src = "./images/LightOn.png";
+                        Light2.style.backgroundColor = "#F2FCFF";
                         Label2.style.color = "#444444";
                         Status2.style.color = "#444444";
 
