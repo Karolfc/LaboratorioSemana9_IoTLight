@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Lab S9 IoT Light</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <script src="https://cdn.socket.io/4.6.0/socket.io.min.js"
+        integrity="sha384-c79GN5VsunZvi+Q/WObgk2in0CbZsHnjEqvFxC5DxHn9lTfNce2WW6h2pH6u/kF+"
+        crossorigin="anonymous"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/p5.js"
+        integrity="sha512-DWtDo/6AXxH1t9p7GCWqmC4XTVK/eje94XTV6QYB39rGllLN8Tr3izDf6lkmebgqRnYh4wtSFm4CvBoA9SrdpA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+        <div id="Light_Level"></div>
+
+        <div id="Lights">
+            <div id="Light1">
+                <div id="Switch">
+                    <h3 class="Label" id="Label1">LED 1</h3>
+                    <div id="Status1"></div>
+    
+                    <label class="Light-mode-switch">
+                        <input type="checkbox" name="light_moe" id="CheckLED1" value="1">
+                        <label for="light_mode" data-on="ON" data-off="OFF" class="Switch-inner"></label>
+                    </label>        
+                </div>
+            </div>
+            
+            <div id="Light2">
+                <div id="Switch2">
+                    <h3 class="Label" id="Label2">LED 2</h3>
+                    <div id="Status2"></div>
+                    
+                    <label class="Light-mode-switch">
+                        <input type="checkbox" name="light_mode" id="CheckLED2" value="1">
+                        <label for="light_mode" data-on="ON" data-off="OFF" class="Switch-inner"></label>
+                    </label>                     
+                </div>
+            </div>    
+        </div>
+    
+
+    <script src="sketch.js" async defer></script>
+</body>
+
+</html>
